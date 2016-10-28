@@ -39,7 +39,7 @@ public class EmployeeRestService {
 	@Path("/verify")
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response verifyRESTService(InputStream incomingData) {
-		String result = "WE ARE UP AND RUNNING GAL!!!!";
+		String result = "WE ARE UP AND RUNNING...HURRAY!!!!";
  
 		// return HTTP response 200 in case of success
 		return Response.status(200).entity(result).build();
