@@ -30,7 +30,7 @@ public class RestServiceClient {
  
 			// Step2: Now pass JSON File Data to REST Service
 			try {
-				URL url = new URL("http://localhost:8080/RestJsonWS/api/crunchifyService");
+				URL url = new URL("http://localhost:8080/RestJsonWebService/api/crunchifyService");
 				URLConnection connection = url.openConnection();
 				connection.setDoOutput(true);
 				connection.setRequestProperty("Content-Type", "application/json");

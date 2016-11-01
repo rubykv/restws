@@ -31,7 +31,6 @@ public class EmployeeRestService {
 		}
 		System.out.println("Data Received: " + crunchifyBuilder.toString());
  
-		// return HTTP response 200 in case of success
 		return Response.status(200).entity(crunchifyBuilder.toString()).build();
 	}
  
@@ -40,8 +39,6 @@ public class EmployeeRestService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response verifyRESTService(InputStream incomingData) {
 		String result = "WE ARE UP AND RUNNING...HURRAY!!!!";
- 
-		// return HTTP response 200 in case of success
 		return Response.status(200).entity(result).build();
 	}
 }
