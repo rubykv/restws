@@ -12,24 +12,35 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.restws.java.main.impl.CustomerService;
+
+@Component
 @Path("/")
-public class EmployeeRestService {
+public class EmployeeRestService{
+	
+	@Autowired
+	CustomerService custService;
 
 	@POST
 	@Path("/crunchifyService")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response crunchifyREST(InputStream incomingData) {
 		StringBuilder crunchifyBuilder = new StringBuilder();
+		boolean result = false;
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
 			String line = null;
 			while ((line = in.readLine()) != null) {
 				crunchifyBuilder.append(line);
+			    result = custService.updateCustomerCity("1");
 			}
 		} catch (Exception e) {
 			System.out.println("Error Parsing: - ");
 		}
-		System.out.println("Data Received: " + crunchifyBuilder.toString());
+		System.out.println("Data updated successfully" + result);
  
 		return Response.status(200).entity(crunchifyBuilder.toString()).build();
 	}
