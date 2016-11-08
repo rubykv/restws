@@ -25,16 +25,16 @@ public class EmployeeRestService{
 	CustomerService custService;
 
 	@POST
-	@Path("/crunchifyService")
+	@Path("/updateCustomerCity")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response crunchifyREST(InputStream incomingData) {
-		StringBuilder crunchifyBuilder = new StringBuilder();
+	public Response updateCustomerCity(InputStream incomingData) {
+		StringBuilder inputBuilder = new StringBuilder();
 		boolean result = false;
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(incomingData));
 			String line = null;
 			while ((line = in.readLine()) != null) {
-				crunchifyBuilder.append(line);
+				inputBuilder.append(line);
 			    result = custService.updateCustomerCity("1");
 			}
 		} catch (Exception e) {
@@ -42,7 +42,7 @@ public class EmployeeRestService{
 		}
 		System.out.println("Data updated successfully" + result);
  
-		return Response.status(200).entity(crunchifyBuilder.toString()).build();
+		return Response.status(200).entity(inputBuilder.toString()).build();
 	}
  
 	@GET

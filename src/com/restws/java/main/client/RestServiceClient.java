@@ -9,18 +9,17 @@ import java.net.URLConnection;
 import org.json.JSONObject;
 
 public class RestServiceClient {
-	private static final String SERVICE_URL = "http://localhost:8080/RestJsonWebService/api/crunchifyService";
+	private static final String SERVICE_URL = "http://localhost:8080/RestJsonWebService/api/updateCustomerCity";
 
 	public static void main(String[] args) {
 		
 		try {
 			final JSONObject jsonInnerObj = new JSONObject();
-			jsonInnerObj.put("id", "Webservice");
-			jsonInnerObj.put("topic", "REST JSON Service");
-			jsonInnerObj.put("description", "This is REST Service Example");
+			jsonInnerObj.put("id", "1");
+			jsonInnerObj.put("city", "Maple shade");
 
 			final JSONObject jsonFinalObj = new JSONObject();
-			jsonFinalObj.put("tutorials", jsonInnerObj);
+			jsonFinalObj.put("customer", jsonInnerObj);
 			
 			try {
 				URL url = new URL(SERVICE_URL);
