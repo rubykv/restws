@@ -9,5 +9,7 @@
     
 	<context:component-scan base-package="com.restws.java.main.service" />
     
-    <bean id="custService" class="com.restws.java.main.impl.CustomerServiceImpl" scope="prototype"/>
+    <bean id="custService" class="com.restws.java.main.service.impl.CustomerServiceImpl" scope="prototype"/>
+    <bean id="mongoDao" class="com.restws.java.main.dao.MongoDBDAOImpl" scope="prototype"/>
+    
 </beans>
